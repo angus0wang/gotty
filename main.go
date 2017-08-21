@@ -8,7 +8,7 @@ import (
 
 	"github.com/codegangsta/cli"
 
-	"github.com/yudai/gotty/app"
+	"github.com/angus0wang/gotty/app"
 )
 
 func main() {
@@ -24,6 +24,7 @@ func main() {
 		flag{"permit-write", "w", "Permit clients to write to the TTY (BE CAREFUL)"},
 		flag{"credential", "c", "Credential for Basic Authentication (ex: user:pass, default disabled)"},
 		flag{"random-url", "r", "Add a random string to the URL"},
+		flag{"specific-url", "l", "Add a Specific string to the URL"},
 		flag{"random-url-length", "", "Random URL length"},
 		flag{"tls", "t", "Enable TLS/SSL"},
 		flag{"tls-crt", "", "TLS/SSL certificate file path"},
@@ -49,6 +50,7 @@ func main() {
 		"tls-key":    "TLSKeyFile",
 		"tls-ca-crt": "TLSCACrtFile",
 		"random-url": "EnableRandomUrl",
+		"specific-url": "SpecificUrl",
 		"reconnect":  "EnableReconnect",
 	}
 

@@ -59,6 +59,7 @@ type Options struct {
 	EnableBasicAuth     bool                   `hcl:"enable_basic_auth"`
 	Credential          string                 `hcl:"credential"`
 	EnableRandomUrl     bool                   `hcl:"enable_random_url"`
+	SpecificUrl     	string                 `hcl:"specific_url"`
 	RandomUrlLength     int                    `hcl:"random_url_length"`
 	IndexFile           string                 `hcl:"index_file"`
 	EnableTLS           bool                   `hcl:"enable_tls"`
@@ -171,6 +172,8 @@ func (app *App) Run() error {
 	path := ""
 	if app.options.EnableRandomUrl {
 		path += "/" + generateRandomString(app.options.RandomUrlLength)
+	}else if app.options.SpecificUrl != ""{
+		path += "/" + app.options.SpecificUrl
 	}
 
 	endpoint := net.JoinHostPort(app.options.Address, app.options.Port)
